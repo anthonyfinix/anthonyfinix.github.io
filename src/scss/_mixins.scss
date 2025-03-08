@@ -1,0 +1,25 @@
+@use "sass:map";
+
+$breakpoints: (
+    mobile: 480px,
+    tablet: 480px,
+    laptop: 800px,
+    desktop: 1024px
+);
+
+// SCSS Mixin
+@mixin media($breakpoint) {
+    $size: map.get($breakpoints, $breakpoint);
+
+    @if $breakpoint == mobile {
+        @media (max-width: $size) {
+            @content;
+        }
+    } @else if $size {
+        @media (min-width: $size) {
+            @content;
+        }
+    } @else {
+        @warn "Breakpoint #{$breakpoint} not found in map.";
+    }
+}

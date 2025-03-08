@@ -1,0 +1,21 @@
+@use "mixins" as *; // Import the mixins
+
+/* 🔹 Container Class */
+.container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include media(mobile) {
+        width: 95%;
+    }
+
+    @include media(tablet) {
+        width: 85%;
+    }
+
+    @include media(desktop) {
+        width: 80%;
+        max-width: 1200px;
+    }
+}
